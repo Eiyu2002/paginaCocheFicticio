@@ -9,73 +9,174 @@ body {
   margin: 0;
   padding: 0;
   font-family: "InterMyFont", sans-serif;
+  overflow-x: hidden;
 }
 
-.text1{
+.containerBody2 {
+  height: 250vh;
+  width: 100vw;
+  position: relative;
+  z-index: 100;
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 62%,
+    rgba(18, 18, 18, 0.96) 72%,
+    rgba(18, 18, 18, 0.91) 78%,
+    rgba(18, 18, 18, 0.81) 88%,
+    rgba(18, 18, 18, 0.74) 96%,
+    rgba(18, 18, 18, 0.64) 100%
+  );
+}
+
+.elementAboutShadow {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  z-index: 200;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 1) 30%,
+    rgba(18, 18, 18, 0.96) 38%,
+    rgba(18, 18, 18, 0.91) 44%,
+    rgba(18, 18, 18, 0.81) 49%,
+    rgba(18, 18, 18, 0.74) 61%,
+    rgba(18, 18, 18, 0.54) 69%,
+    rgba(18, 18, 18, 0.41) 76%,
+    rgba(18, 18, 18, 0.15) 82%
+  );
+}
+
+.text1 {
   width: 100%;
   text-align: center;
-  margin-top: 5%!important;
+  margin-top: 5% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
 
   z-index: 10;
-}	
+}
 
-.text2{
+.text2 {
   width: 100%;
   text-align: center;
-  margin-top: 30%!important;
+  margin-top: 30% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
 
   z-index: 10;
-}	
+}
 
-.text3{
+.text3 {
   width: 100%;
   text-align: center;
-  margin-top: 18%!important;
+  margin-top: 18% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
 
   z-index: 10;
-}	
+}
 
-
-.text4{
+.text4 {
   width: 45%;
   text-align: center;
-  margin-top: 30%!important;
+  margin-top: 30% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
   display: inline-block;
   z-index: 10;
-}	
+}
 
-
-
-.text5{
+.text5 {
   width: 45%;
   text-align: center;
-  margin-top: 30%!important;
+  margin-top: 30% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
   display: inline-block;
   z-index: 10;
-}	
+}
 
-.text6{
+.text6 {
   width: 10%;
   text-align: center;
-  margin-top: 30%!important;
+  margin-top: 30% !important;
   font-size: 2rem;
   margin: 0;
   color: white;
   display: inline-block;
   z-index: 10;
-}	
+}
+
+.text1Tittle{
+  color: white;
+}
+
+.containerPresentation{
+  width: 60%;
+  height: 60%;
+  margin-left: 20%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+  position: fixed  ;  
+}
+
+.containerPresentation2{
+  width: 40%;
+  height: 30%;
+  margin-left: 2%;
+  margin-top: 5%;
+  display: flex;
+  
+  
+  flex-direction: column;
+
+  position: fixed  ;  
+}
+
+.textModelCar{
+  color: white;
+  background-color: #8B2635;
+  height: 25%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 10%;
+  border-radius: 21px 21px 21px 21px;
+
+}
+
+.textModelCar2{
+  color: white;
+  margin-left: 5%;
+  margin-top: 0;
+  width: 75%;
+  letter-spacing: 0.1em;
+}
+
+.trigger1{
+  margin-top: 30%;
+  height: 16%;
+  position: absolute;
+ 
+}
+
+
+.trigger2{
+  margin-top: 116%;
+  height: 2%;
+  position: absolute;
+  
+
+ 
+}

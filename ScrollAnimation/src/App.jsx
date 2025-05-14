@@ -11,31 +11,66 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function App() {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
-  const text3 = useRef(null);
-  const text4 = useRef(null);
-  const text5 = useRef(null);
+  const containerBody2 = useRef(null);
+  const containerBody3 = useRef(null);
+  const containerPresentation = useRef(null);
+  const containerPresentation2 = useRef(null);
 
+  const trigger1 = useRef(null);
+  const trigger2 = useRef(null);
+
+  const imageRef2 = useRef(null);
   const [images, setImages] = useState([]);
+  const [images2, setImages2] = useState([]);
+  const [isFixed, setIsFixed] = useState(false);
 
   // Preload frames
   useEffect(() => {
-    const frameCount = 100;
+    const frameCount = 82;
     const loadedImages = [];
-
+    const loadedImages2 = [];
+    const frameCount2 = 118;
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
       const frameNumber = String(i).padStart(3, "0");
-      img.src = `/img/ezgif-frame-${frameNumber}.jpg`;
+      img.src = `/img/hero1/ezgif-frame-${frameNumber}.png`;
       loadedImages.push(img);
+    }
+    for (let i = 83; i <= frameCount2; i++) {
+      const img = new Image();
+      const frameNumber = String(i).padStart(3, "0");
+      img.src = `/img/hero2/ezgif-frame-${frameNumber}.png`;
+      loadedImages2.push(img);
     }
 
     setImages(loadedImages);
+    setImages2(loadedImages2);
+  }, []);
+
+  useEffect(() => {
+    const element = document.querySelector("#imageRef2");
+
+    const trigger = element.offsetTop;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      console.log(scrollY, trigger);
+      if (scrollY >= trigger) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (images.length === 0) return;
 
     const obj = { frame: 0 };
+    const obj2 = { frame: 0 };
 
     gsap.to(obj, {
       frame: images.length - 1,
@@ -45,6 +80,7 @@ function App() {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom bottom",
+
         scrub: 1,
       },
       onUpdate: () => {
@@ -55,61 +91,140 @@ function App() {
       },
     });
 
+    gsap.to(obj2, {
+      frame: images2.length - 1,
+      snap: "frame",
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerBody3.current,
+        start: "top top",
+        end: "bottom bottom",
+
+        scrub: 1,
+      },
+      onUpdate: () => {
+        const img = images2[obj2.frame];
+        if (img && imageRef2.current) {
+          imageRef2.current.src = img.src;
+        }
+      },
+    });
+
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [images]);
+  }, [images, images2]);
 
   useGSAP(() => {
     gsap.fromTo(
-      text3.current,
+      containerBody2.current,
+      { opacity: 0 },
+      {
+        opacity: 2,
+        duration: 5,
+        scrollTrigger: {
+          trigger: containerBody2.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      containerPresentation.current,
+      { opacity: 1 },
       {
         opacity: 0,
-        scale: 3,
-      },
+        duration: 5,
+        scrollTrigger: {
+          trigger: trigger1.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      containerPresentation2.current,
+      { opacity: 0 },
       {
         opacity: 1,
-        scale: 1,
-        ease: "power1.inOut",
-        duration: 1,
+        duration: 2,
         scrollTrigger: {
-          trigger: text3.current,
-          start: "top 80%", // cuando el top del texto llegue al 80% de la pantalla
-          toggleActions: "play none none none", // solo se anima una vez
+          trigger: trigger2.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
         },
       }
     );
   }, []);
 
   return (
-    <div ref={containerRef} style={{ height: "400vh", position: "relative" }}>
-      <h1 className="text1">Scroll-triggered Video Animation</h1>
-      <h1 className="text2">POR JOEL MAXIMILIANO ETCHEGARAY</h1>
-      <h1 className="text3" ref={text3}>
-        USANDO...
-      </h1>
-      <h1 className="text4" ref={text4}>
-        GSAP
-      </h1>
-      <h1 className="text6"> Y </h1>
-      <h1 className="text5" ref={text5}>
-        REACT
-      </h1>
-      <img
-        ref={imageRef}
-        src="/img/ezgif-frame-001.jpg"
-        style={{
-          position: "fixed",
-          margin: 0,
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          objectFit: "cover",
-          zIndex: -1,
-        }}
-      />
-    </div>
+    <>
+      <div
+        ref={containerRef}
+        className="containerBody1"
+        style={{ height: "400vh", position: "relative" }}
+      >
+        <div className="containerPresentation" ref={containerPresentation}>
+          <h1 className="text1Tittle">Domina el camino. Redefine el lujo.</h1>
+        </div>
+        <div className="containerPresentation2" ref={containerPresentation2}>
+          <h1 className="textModelCar">Elan One</h1>
+          <p className="textModelCar2">
+            Con líneas sofisticadas, tecnología de vanguardia y un diseño
+            moderno que impone presencia en cada detalle.{" "}
+            <strong>El futuro tiene motor. Y es elegante.</strong>
+          </p>
+        </div>
+        <div className="trigger1" ref={trigger1}></div>
+        <div className="trigger2" ref={trigger2}></div>
+
+        <img
+          ref={imageRef}
+          src="/img/hero1/ezgif-frame-001.png"
+          style={{
+            margin: 0,
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+            position: "fixed",
+            zIndex: -1,
+          }}
+        />
+      </div>
+
+      <div className="containerBody2" ref={containerBody2}></div>
+      <div
+        className="containerBody3"
+        style={{ height: "130vh" }}
+        ref={containerBody3}
+        position="relative"
+      >
+        <div className="elementAboutShadow"></div>
+        <img
+          ref={imageRef2}
+          id="imageRef2"
+          src="/img/hero2/ezgif-frame-083.png"
+          style={{
+            position: isFixed ? "fixed" : "relative",
+
+            margin: 0,
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+
+            zIndex: -1,
+          }}
+        />
+      </div>
+    </>
   );
 }
 
