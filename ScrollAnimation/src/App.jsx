@@ -198,7 +198,16 @@ function App() {
         />
       </div>
 
-      <div className="containerBody2" ref={containerBody2}></div>
+      <div className="containerBody2" ref={containerBody2}>
+        <div className="containerAbout">
+          <div className="containerImg"></div>
+          <div className="containerText">
+            <div className="containerListEspec1">
+              <h1 className="especText1">Tecnología sin límites</h1>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="containerBody3"
         style={{ height: "130vh" }}

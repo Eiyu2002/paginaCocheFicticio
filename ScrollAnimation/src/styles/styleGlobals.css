@@ -112,11 +112,11 @@ body {
   z-index: 10;
 }
 
-.text1Tittle{
+.text1Tittle {
   color: white;
 }
 
-.containerPresentation{
+.containerPresentation {
   width: 60%;
   height: 60%;
   margin-left: 20%;
@@ -125,38 +125,36 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
- 
-  position: fixed  ;  
+
+  position: fixed;
 }
 
-.containerPresentation2{
+.containerPresentation2 {
   width: 40%;
-  height: 30%;
+  height: 35%;
   margin-left: 2%;
   margin-top: 5%;
   display: flex;
-  
-  
+
   flex-direction: column;
 
-  position: fixed  ;  
+  position: fixed;
 }
 
-.textModelCar{
+.textModelCar {
   color: white;
-  background-color: #8B2635;
-  height: 25%;
-  width: 30%;
+  background-color: #8b2635;
+  height: 30%;
+  width: 32%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 5%;
   margin-top: 10%;
   border-radius: 21px 21px 21px 21px;
-
 }
 
-.textModelCar2{
+.textModelCar2 {
   color: white;
   margin-left: 5%;
   margin-top: 0;
@@ -164,19 +162,47 @@ body {
   letter-spacing: 0.1em;
 }
 
-.trigger1{
+.trigger1 {
   margin-top: 30%;
   height: 16%;
   position: absolute;
- 
 }
 
-
-.trigger2{
+.trigger2 {
   margin-top: 116%;
   height: 2%;
   position: absolute;
-  
+}
 
+strong {
+  color: #8b2635;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+
+.containerAbout {
+  display: flex;
  
+}
+
+.containerImg {
+  width: 50%;
+}
+
+.containerText {
+  width: 50%;
+  margin-top: 35%;
+}
+
+.especText1{
+  color: white;
+  letter-spacing: 0.2em;
+  font-size: 1.5em;
+  background-color: #8b2635;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  border-radius: 21px 21px 21px 21px;
+  height: 1.5em;
+  align-items: center;
 }
