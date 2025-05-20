@@ -15,9 +15,14 @@ function App() {
   const containerBody3 = useRef(null);
   const containerPresentation = useRef(null);
   const containerPresentation2 = useRef(null);
+  const especText1 = useRef(null);
+  const especTextList = useRef(null);
+  const carimg1 = useRef(null);
 
   const trigger1 = useRef(null);
   const trigger2 = useRef(null);
+  const trigger3 = useRef(null);
+  const trigger4 = useRef(null);
 
   const imageRef2 = useRef(null);
   const [images, setImages] = useState([]);
@@ -159,6 +164,56 @@ function App() {
         },
       }
     );
+
+    gsap.fromTo(
+      especText1.current,
+      { opacity: 0, scale: 0 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 10,
+        scrollTrigger: {
+          trigger: trigger3.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      especTextList.current,
+      { opacity: 0, width: "0%" },
+      {
+        opacity: 1,
+        width: "95%",
+
+        duration: 10,
+        scrollTrigger: {
+          trigger: trigger4.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      carimg1.current,
+      { opacity: 0, top: "5em" },
+      {
+        opacity: 1,
+        top: "0em",
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: carimg1.current,
+          start: "top 65%",
+
+          end: "bottom 10%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
   }, []);
 
   return (
@@ -199,11 +254,56 @@ function App() {
       </div>
 
       <div className="containerBody2" ref={containerBody2}>
+        <div className="trigger3" ref={trigger3}></div>
+        <div className="trigger4" ref={trigger4}></div>
+
         <div className="containerAbout">
-          <div className="containerImg"></div>
+          <div className="containerImg">
+            <div className="carimg1" ref={carimg1}></div>
+          </div>
           <div className="containerText">
             <div className="containerListEspec1">
-              <h1 className="especText1">Tecnología sin límites</h1>
+              <h1 className="especText1" ref={especText1}>
+                Tecnología sin límites
+              </h1>
+              <ol className="especTextList" ref={especTextList}>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Motorización:</strong>{" "}
+                  <h2>Motor eléctrico cuántico de alto rendimiento</h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Autonomía:</strong>{" "}
+                  <h2>Hasta 1.200 km con una sola carga</h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Aceleración:</strong>{" "}
+                  <h2> 0 a 100 km/h en 2.3 segundos</h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Velocidad máxima:</strong> <h2>320 km/h </h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Tracción:</strong>{" "}
+                  <h2>Total inteligente con distribución dinámica</h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Batería:</strong>{" "}
+                  <h2>
+                    Celdas de grafeno autorreparables con carga ultrarrápida
+                  </h2>
+                </li>
+                <li>
+                  <i className="fa-brands fa-hashnode"></i>
+                  <strong>Suspensión:</strong>{" "}
+                  <h2>Adaptativa con sistema de flotación magnética</h2>
+                </li>
+              </ol>
             </div>
           </div>
         </div>

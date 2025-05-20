@@ -173,36 +173,105 @@ body {
   height: 2%;
   position: absolute;
 }
+.trigger3 {
+  top: 5%;
+  height: 20%;
+  position: absolute;
+
+  z-index: 100;
+}
+
+.trigger4 {
+  top: 5%;
+  position: absolute;
+  height: 17%;
+}
 
 strong {
   color: #8b2635;
   font-size: 1.2em;
   letter-spacing: 0.1em;
 }
-
+.containerListEspec1 {
+  width: 100%;
+}
 .containerAbout {
   display: flex;
- 
 }
 
 .containerImg {
-  width: 50%;
-}
-
-.containerText {
-  width: 50%;
+  width: 45%;
   margin-top: 35%;
 }
 
-.especText1{
+.containerText {
+  width: 55%;
+  margin-top: 35%;
+}
+
+.especText1 {
   color: white;
   letter-spacing: 0.2em;
-  font-size: 1.5em;
+  font-size: 1.3em;
   background-color: #8b2635;
-  width: 55%;
+  width: 45%;
   display: flex;
   justify-content: center;
   border-radius: 21px 21px 21px 21px;
   height: 1.5em;
   align-items: center;
+}
+.especTextList {
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 1.5em;
+  height: 38vh;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    rgba(139, 38, 53, 0) 52%,
+    rgba(139, 38, 53, 0.29) 83%,
+    rgba(139, 38, 53, 0.29) 70%,
+    rgba(139, 38, 53, 0.24) 97%
+  );
+
+  border-radius: 26px 26px 26px 26px;
+}
+.especTextList > li {
+  list-style: none;
+  color: white;
+  margin-bottom: 0.5em;
+}
+
+.especTextList > li > h2 {
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin: 0;
+  display: inline-block;
+}
+
+.especTextList > li > i {
+  font-size: 1em;
+  margin-right: 1em;
+  display: inline-block;
+}
+
+.carimg1 {
+  background-image: url("../../public/img/carimg1.jpg");
+  mask-image: linear-gradient(to top, transparent, #121212 30%),
+    linear-gradient(to bottom, transparent, #121212 30%),
+    linear-gradient(to left, transparent, #121212 30%),
+    linear-gradient(to right, transparent, #121212 30%);
+  mask-composite: intersect;
+  margin-left: 10%;
+  margin-top: 7%;
+  width: 70%;
+  height: 85%;
+  position: relative;
+  background-size: cover;
 }
